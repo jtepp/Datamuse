@@ -1,0 +1,15 @@
+:root{font-family: 'IBM Plex Mono', monospace;
+font-weight: 400;}
+h4 {
+    margin-bottom: 10px;
+    font-weight: 700;
+
+}
+
+.tab{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+textarea{
+    resize: none;
+}

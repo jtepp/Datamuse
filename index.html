@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset=“UTF-8”>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Datamuse</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>Datamuse</h1>
+    </header>
+    <hr>
+    <div class="tab">
+        <div>
+            <h4>Term:</h4>
+            <div id="first">
+
+                <select name="s0" id="s0"></select><input type="text" name="t0" id="t0"><input type="button"
+                    onclick="add()" id="b0" value="+">
+
+            </div>
+
+            <h4>Extras:</h4>
+            Topics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="topics" id="topics">
+            <br>
+            Left context:&nbsp;&nbsp; <input type="text" name="lc" id="lc">
+            <br>
+            Right context: &nbsp;<input type="text" name="rc" id="rc">
+            <br>
+            <h4>Metadata:</h4>
+            <div id="md"></div>
+            <br>
+            <input type="range" name="" id="max" value="0"
+                onchange="document.getElementById('show').innerHTML=document.getElementById('max').value">
+            <span id='show'>0</span>
+            <br>
+            (0 to remove limit)
+            <br>
+            <br>
+            <button id="submit">submit</button>
+        </div>
+        <textarea name="" id="textarea" cols="30" readonly></textarea>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
