@@ -2,6 +2,8 @@ const pre = {
     "Means like": "ml",
     "Sounds like": "sl",
     "Spelled like": "sp",
+    "Starts with": "st",
+    "Ends with": "en",
     "Modified nouns": "rel_jja",
     "Modifying adjectives": "rel_jjb",
     "Synonyms": "rel_syn",
@@ -18,7 +20,8 @@ const pre = {
     "Consonant match": "rel_cns",
 };
 
-
+var starter = '';
+var ender = '';
 const pro = {
     "Topics": "topics",
     "Left context": "lc",
@@ -67,17 +70,20 @@ for (m in mmdd) {
 
 
 document.getElementById("submit").onclick = () => {
-
+    starter = '';
+    ender = '';
     if (document.getElementById("t0").value.length > 0) {
         var url = base;
 
         for (var i = 0; i < Object.keys(selects).length; i++) {
             if (i != 0) url += "&";
-
-            url += selects['s' + i].options[selects['s' + i].selectedIndex].value + '=' + replaceAll(texts['t' + i].value, ' ', '+');
+            const temp = selects['s' + i].options[selects['s' + i].selectedIndex].value;
+            if (temp != 'en' && temp != 'st') { url += temp + '=' + replaceAll(texts['t' + i].value, ' ', '+'); }
+            else if (temp == 'st') { starter += replaceAll(texts['t' + i].value, ' ', '+'); }
+            else if (temp == 'en') { ender += replaceAll(texts['t' + i].value, ' ', '+'); }
 
         }
-
+        if (starter || ender) url += `&sp=${starter}*${ender}`;
         for (ro in pro) {
             if (document.getElementById(pro[ro]).value != "")
                 url += '&' + pro[ro] + '=' + replaceAll(document.getElementById(pro[ro]).value, ' ', '+');
