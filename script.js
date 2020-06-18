@@ -124,8 +124,31 @@ for (m in mmdd) {
     md.appendChild(document.createElement('br'));
 }
 
+function respond() {
+    if (screen.width < 600) {
+        for (e of document.getElementsByClassName('tab')) {
+            e.setAttribute('style', 'grid-template-columns: 1fr;');
+        }
+        document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
+        document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
+    } else {
+        for (e of document.getElementsByClassName('tab')) {
+            e.setAttribute('style', 'grid-template-columns: 1fr 1fr;');
+        }
+        document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
+        document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
+
+
+    }
+}
+
 
 document.getElementById("submit").onclick = () => {
+
+    if (window.innerWidth < 650) {
+
+        cont.scrollIntoView(true);
+    }
     currFilt = "All";
     document.getElementById('seive').setAttribute('style', 'opacity: 1;');
     cont.innerHTML = "";
@@ -161,7 +184,7 @@ document.getElementById("submit").onclick = () => {
     } else {
         // console.log(false);
         document.getElementById('seive').setAttribute('style', 'opacity: 0;');
-        cont.innerHTML = "<div style='position: fixed; top: 100px; right:20vw;'>Please provide a search term</div>"
+        cont.innerHTML = "Please provide a search term"
         // document.creat
     }
 
@@ -263,7 +286,7 @@ async function dog(link) {
     }
     if (!availParts.includes("All")) availParts.push("All");
 
-    if (availParts.length < 2 || cont.innerHTML == "") { document.getElementById('seive').setAttribute('style', 'opacity: 0;'); cont.innerHTML = "<div style='position: fixed; top: 100px; right:20vw;'>No Results :(</div>" }
+    if (availParts.length < 2 || cont.innerHTML == "") { document.getElementById('seive').setAttribute('style', 'opacity: 0;'); cont.innerHTML = "No Results :(" }
     filter.innerHTML = '';
     for (pp of availParts) {
         const l = document.createElement('label');
@@ -292,7 +315,7 @@ function fille(input) {
         const cd = document.createElement('div');
         cd.setAttribute('class', 'card');
         cd.setAttribute('id', curds[ww].word + 'card');
-        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '", ' + curds[ww].score + ')');
+        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '")');
         const h = document.createElement('h1');
         h.setAttribute('id', capitalize(curds[ww].word))
         h.innerHTML = capitalize(curds[ww].word);
@@ -345,12 +368,13 @@ function copy(id) {
     document.getElementById('clip').style.opacity = 1;
     dd.style.background = "green";
     // const el = document.createElement('textarea');
-    // el.value = document.getElementById(id).innerHTML.split('<')[0];
+    // el.value = document.getElementById(id).childNodes[0].innerHTML.split('<')[0];
     // document.body.appendChild(el);
     // el.select();
     // document.execCommand('copy');
     // document.body.removeChild(el);
-    navigator.clipboard.writeText(document.getElementById(id).innerHTML.split('<')[0])
+    // navigator.clipboard.writeText(document.getElementById(id).childNodes[0].innerHTML.split('<')[0])
+    copyyy(id);
     setTimeout(function () {
 
         document.getElementById('clip').style.opacity = 0;
@@ -416,4 +440,35 @@ function replaceAll(tat, s, r) {
 function capitalize(s) {
     if (typeof s !== 'string') return ''
     return (s.charAt(0).toUpperCase() + s.slice(1)).trim()
+}
+
+var copyyy = function (elementId) {
+
+    var input = document.getElementById(elementId);
+    var isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
+
+    if (isiOSDevice) {
+
+        var editable = input.contentEditable;
+        var readOnly = input.readOnly;
+
+        input.contentEditable = true;
+        input.readOnly = false;
+
+        var range = document.createRange();
+        range.selectNodeContents(input);
+
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        input.setSelectionRange(0, 999999);
+        input.contentEditable = editable;
+        input.readOnly = readOnly;
+
+    } else {
+        input.select();
+    }
+
+    document.execCommand('copy');
 }
