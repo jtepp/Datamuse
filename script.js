@@ -212,7 +212,7 @@ async function dog(link) {
         const cd = document.createElement('div');
         cd.setAttribute('class', 'card');
         cd.setAttribute('id', curds[ww].score);
-        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '", ' + curds[ww].score + ')');
+        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '")');
         const h = document.createElement('h1');
         h.setAttribute('id', capitalize(curds[ww].word))
         h.innerHTML = capitalize(curds[ww].word);
@@ -339,9 +339,9 @@ function fille(input) {
 
 
 }
-function copy(id, score) {
+function copy(id) {
     const clip = document.getElementById('clip');
-    const dd = document.getElementById(score);
+    const dd = document.getElementById(id);
     document.getElementById('clip').style.opacity = 1;
     dd.style.background = "green";
     const el = document.createElement('textarea');
