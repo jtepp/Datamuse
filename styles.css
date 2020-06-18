@@ -51,6 +51,18 @@ sup, sub{
     right: 20px;
 }
 
+a:link {
+    color: white;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: white;
+  }
+  a:active{
+      color: blue;
+  }
+
 #clip{
     transition: all 0.6s ease ;
     font-size: 24pt;
