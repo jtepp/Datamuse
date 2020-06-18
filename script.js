@@ -211,8 +211,8 @@ async function dog(link) {
         // var cc = 0;
         const cd = document.createElement('div');
         cd.setAttribute('class', 'card');
-        cd.setAttribute('id', curds[ww].score);
-        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '")');
+        cd.setAttribute('id', capitalize(curds[ww].word) + 'card');
+        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + 'card' + '")');
         const h = document.createElement('h1');
         h.setAttribute('id', capitalize(curds[ww].word))
         h.innerHTML = capitalize(curds[ww].word);
@@ -291,7 +291,7 @@ function fille(input) {
     for (ww in curds) {
         const cd = document.createElement('div');
         cd.setAttribute('class', 'card');
-        cd.setAttribute('id', curds[ww].score);
+        cd.setAttribute('id', curds[ww].word + 'card');
         cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '", ' + curds[ww].score + ')');
         const h = document.createElement('h1');
         h.setAttribute('id', capitalize(curds[ww].word))
