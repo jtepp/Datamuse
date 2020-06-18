@@ -6,6 +6,7 @@ font-weight: 400;
 /* --grad: linear-gradient(90deg,  #9A3535 -100%, #792C84 0%, #30039b 100%); */
 --grad: none;
 --f: 140%;
+--inv: 1;
 }
 header{
     height : 6vh;
@@ -50,6 +51,15 @@ sup, sub{
     position: fixed;
     right: 20px;
 }
+
+#dork{
+    transition: all 0.5s ease;
+}
+#dork:hover{
+filter: invert(var(--inv));
+
+}
+
 
 a:link {
     color: white;

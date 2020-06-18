@@ -4,6 +4,7 @@ class Definition {
         this.deff = deff;
     }
 }
+count = 0;
 class Curd {
     constructor(word, score, p, d, s, f, r) {
         this.word = word;
@@ -16,6 +17,7 @@ class Curd {
     }
 
 }
+let root = document.documentElement.style;
 var curds = {};
 var currFilt = "All";
 const filter = document.getElementById('filter');
@@ -63,6 +65,21 @@ const pro = {
     "Left context": "lc",
     "Right context": "rc",
 };
+
+document.getElementById("dork").addEventListener('click', (e) => {
+    switch (count % 2) {
+        case 0:
+            root.setProperty('--f', '70%');
+            break;
+        case 1:
+            root.setProperty('--f', '140%');
+            break;
+    }
+    document.getElementById("dork").src = count % 2 + '.png'
+    // console.log(root.getPropertyValue('--inv'));
+
+    count++;
+})
 
 const mmdd = {
     "Pronunciation": "r",
