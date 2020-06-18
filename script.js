@@ -125,20 +125,22 @@ for (m in mmdd) {
 }
 
 function respond() {
-    if (screen.width < 600) {
-        for (e of document.getElementsByClassName('tab')) {
-            e.setAttribute('style', 'grid-template-columns: 1fr;');
-        }
-        document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
-        document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
-    } else {
-        for (e of document.getElementsByClassName('tab')) {
-            e.setAttribute('style', 'grid-template-columns: 1fr 1fr;');
-        }
-        document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
-        document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
+    if (screen.width < 1000) {
+        if (screen.width < 600) {
+            for (e of document.getElementsByClassName('tab')) {
+                e.setAttribute('style', 'grid-template-columns: 1fr;');
+            }
+            document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
+            document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
+        } else {
+            for (e of document.getElementsByClassName('tab')) {
+                e.setAttribute('style', 'grid-template-columns: 1fr 1fr;');
+            }
+            document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
+            document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
 
 
+        }
     }
 }
 
@@ -367,14 +369,17 @@ function copy(id) {
     const dd = document.getElementById(id);
     document.getElementById('clip').style.opacity = 1;
     dd.style.background = "green";
-    // const el = document.createElement('textarea');
-    // el.value = document.getElementById(id).childNodes[0].innerHTML.split('<')[0];
-    // document.body.appendChild(el);
-    // el.select();
-    // document.execCommand('copy');
-    // document.body.removeChild(el);
+    const el = document.createElement('textarea');
+    el.value = document.getElementById(id).childNodes[0].innerHTML.split('<')[0];
+    document.body.appendChild(el);
+    el.select();
+    var isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
+
+    if (isiOSDevice) { el.setSelectionRange(0, 9999); }
+    document.execCommand('copy');
+    document.body.removeChild(el);
     // navigator.clipboard.writeText(document.getElementById(id).childNodes[0].innerHTML.split('<')[0])
-    copyyy(id);
+
     setTimeout(function () {
 
         document.getElementById('clip').style.opacity = 0;

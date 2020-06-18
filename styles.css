@@ -78,13 +78,13 @@ a:link {
 
 #clip{
     transition: all 0.6s ease ;
-    font-size: 24pt;
+    font-size: 20pt;
     border-radius: 10px;
     /* background-color: #3F00A0; */
     background-color: green;
     padding: 10px;
     color: white;
-    position: absolute;
+    position: fixed;
     top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
