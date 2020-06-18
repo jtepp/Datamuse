@@ -24,6 +24,7 @@ h1{
 }
 
 h4 {
+
     margin-bottom: 10px;
     font-weight: 700;
 
@@ -40,19 +41,14 @@ h4 {
     grid-template-columns: 1fr 1fr;
     margin: 0;
 }
-sup{
-    top:-15px;
 
-}
-sub{bottom: 5px;}
-sup, sub{
+
+.su{
     
     color: white;
     font-weight: 300;
-    font-size: 10pt;
-    text-align: right;
-    position: fixed;
-    right: 20px;
+    /* font-size: 10pt; */
+    
 }
 
 #dork{
@@ -243,8 +239,8 @@ background-image: linear-gradient(90deg, #9A3535 0%, #792C84 50%, #30039b 100%);
     }
     
     .card > h1{
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        /* border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px; */
         /* background-image: var(--grad); */
         /* background-attachment: scroll; */
         /* position: sticky; */
@@ -254,7 +250,7 @@ background-image: linear-gradient(90deg, #9A3535 0%, #792C84 50%, #30039b 100%);
         font-weight: 600;
         text-align: left;
         font-size: 24pt;
-        margin-top: 20px;
+        margin-top: 0px;
         padding-left: 20px;
         padding-right: 20px;
         margin-bottom: 0;
@@ -278,7 +274,9 @@ background-image: linear-gradient(90deg, #9A3535 0%, #792C84 50%, #30039b 100%);
         margin-top: 0;
         padding-left: 20px;
         padding-right: 20px;
-        margin-bottom: 20px;
+        /* margin-block-start: 1em; */
+        /* margin-block-end: 0em; */
+        /* margin-bottom: 20px; */
         /* max-height: 175px; */
         overflow: hidden;
     }

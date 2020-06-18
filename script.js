@@ -17,6 +17,7 @@ class Curd {
     }
 
 }
+let instructions = true;
 let root = document.documentElement.style;
 var curds = {};
 var currFilt = "All";
@@ -132,10 +133,13 @@ function respond() {
             }
             document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
             document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
+            if (!instructions)
+                cont.setAttribute('style', 'display: grid; grid-template-columns: 1fr 1fr;');
         } else {
             for (e of document.getElementsByClassName('tab')) {
                 e.setAttribute('style', 'grid-template-columns: 1fr 1fr;');
             }
+            cont.setAttribute('style', 'display: initial;');
             document.getElementById('inputting').setAttribute('style', 'width:auto; padding-bottom:-10px;');
             document.getElementById("submit").setAttribute('style', 'margin-left:0; margin-bottom :20px;')
 
@@ -146,7 +150,8 @@ function respond() {
 
 
 document.getElementById("submit").onclick = () => {
-
+    instructions = false
+    respond();
     if (window.innerWidth < 650) {
 
         cont.scrollIntoView(true);
@@ -242,9 +247,11 @@ async function dog(link) {
         h.setAttribute('id', capitalize(curds[ww].word))
         h.innerHTML = capitalize(curds[ww].word);
 
-        const sup = document.createElement('sup');
+        const sup = document.createElement('div');
+        sup.setAttribute('class', 'su');
+        sup.setAttribute('style', 'text-align: right; padding-right: 10px; padding-top: 10px;');
         sup.innerHTML = 'Accuracy: ' + curds[ww].score;
-        h.appendChild(sup);
+
 
         const har = document.createElement('hr');
         har.setAttribute('class', 'har');
@@ -265,10 +272,13 @@ async function dog(link) {
             }
             p.innerHTML += '<br>';
         }
-
-        const sub = document.createElement('sub');
+        const sub = document.createElement('div');
+        sub.setAttribute('class', 'su');
+        sub.setAttribute('style', 'text-align: right; padding-right: 10px; padding-bottom: 10px;margin-top:-20px;');
         sub.innerHTML = 'Frequency: ' + curds[ww].f;
+
         // console.log(p.innerHTML);
+        cd.appendChild(sup);
         cd.appendChild(h);
         if (p.innerHTML.length > 0) cd.appendChild(har);
         cd.appendChild(p);
@@ -326,9 +336,10 @@ function fille(input) {
         h.setAttribute('id', capitalize(curds[ww].word))
         h.innerHTML = capitalize(curds[ww].word);
 
-        const sup = document.createElement('sup');
+        const sup = document.createElement('div');
+        sup.setAttribute('class', 'su');
+        sup.setAttribute('style', 'text-align: right; padding-right: 10px; padding-top: 10px;');
         sup.innerHTML = 'Accuracy: ' + curds[ww].score;
-        h.appendChild(sup);
 
         const har = document.createElement('hr');
         har.setAttribute('class', 'har');
@@ -350,9 +361,12 @@ function fille(input) {
             p.innerHTML += '<br>';
         }
 
-        const sub = document.createElement('sub');
+        const sub = document.createElement('div');
+        sub.setAttribute('class', 'su');
+        sub.setAttribute('style', 'text-align: right; padding-right: 10px; padding-bottom: 10px;margin-top:-20px;');
         sub.innerHTML = 'Frequency: ' + curds[ww].f;
         // console.log(p.innerHTML);
+        cd.appendChild(sup);
         cd.appendChild(h);
         if (p.innerHTML.length > 0) cd.appendChild(har);
         cd.appendChild(p);
