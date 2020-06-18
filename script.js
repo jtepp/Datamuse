@@ -90,7 +90,7 @@ const mmdd = {
 };
 const cont = document.getElementsByClassName('container')[0];
 const ff = document.getElementById('first');
-const base = "http://api.datamuse.com/words?";
+const base = "https://api.datamuse.com/words?";
 var bonus = '';
 var terms = 1;
 var anyChecked = false;
