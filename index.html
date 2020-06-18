@@ -5,6 +5,7 @@
 <head>
     <meta charset=“UTF-8”>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Datamuse</title>
 
@@ -16,37 +17,102 @@
     </header>
     <hr>
     <div class="tab">
-        <div>
-            <h4>Term:</h4>
-            <div id="first">
+        <div id="left">
+            <div class="card"
+                style="width: fit-content; height: fit-content; padding-left: 20px; padding-right: 20px; padding-bottom: 20px;">
+                <h4>Term:</h4>
+                <div id="first">
 
-                <select name="s0" id="s0"></select><input type="text" name="t0" id="t0"><input type="button"
-                    onclick="add()" id="b0" value="+">
+                    <select name="s0" id="s0"></select><input type="text" name="t0" id="t0"><input type="button"
+                        onclick="add()" id="b0" value="+">
 
+                </div>
+
+                <h4>Extras:</h4>
+                Topics:<input type="text" name="topics" id="topics" style="position: fixed; right: 45px;">
+                <br>
+                Left context:<input type="text" name="lc" id="lc" style="position: fixed; right: 45px;">
+                <br>
+                Right context:<input type="text" name="rc" id="rc" style="position: fixed; right: 45px;">
+                <br>
+                <div>
+                    <div>
+                        <h4>Metadata:</h4>
+                        <div id="md"></div>
+                    </div>
+
+                </div>
+                <br>
+                Results: <input type="range" name="" id="max" value="0"
+                    oninput="document.getElementById('show').innerHTML=document.getElementById('max').value">
+                <span id='show'>0</span>
+                <br>
+                (0 to remove limit)
+                <br>
+                <br>
+                <div id="submit" class="butt">Submit</div>
             </div>
+            <div class="card" id="seive">
 
-            <h4>Extras:</h4>
-            Topics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="topics" id="topics">
-            <br>
-            Left context:&nbsp;&nbsp; <input type="text" name="lc" id="lc">
-            <br>
-            Right context: &nbsp;<input type="text" name="rc" id="rc">
-            <br>
-            <h4>Metadata:</h4>
-            <div id="md"></div>
-            <br>
-            <input type="range" name="" id="max" value="0"
-                oninput="document.getElementById('show').innerHTML=document.getElementById('max').value">
-            <span id='show'>0</span>
-            <br>
-            (0 to remove limit)
-            <br>
-            <br>
-            <button id="submit">submit</button>
+                <span id="ff">Filter:</span>
+                <span id="filter"></span>
+                <!-- <input type="radio" name="filth" id="noun"> -->
+            </div>
         </div>
-        <textarea name="" id="textarea" cols="30" readonly></textarea>
-    </div>
 
+        <div class="container">
+
+            <center>
+                <div id="instruct">
+                    <h1>Instructions</h1>
+                    <br>
+                    <p>
+                        Enter a search term and discover hundreds of related words. <br><br>
+                        Add as many terms as you like to your searches by pressing the <b><u>[+]</u></b> button,<br>
+                        and scroll through over 18 possible relation criteria.
+                        <br><br>
+                        Add extra contextual information in the <b><u>Extras</u></b> section,<br>
+                        and select which information you want to read in the <b><u>Metadata</u></b> section. <br><br>
+
+                        Limit the amount of results returned, or leave it at 0 for an unlimited amount. <br>
+                        Click <b><u>Submit</u></b> when ready, or press enter. <br><br>
+                        After searching, filter your results by their parts of speech.
+                    </p>
+
+                </div>
+            </center>
+            <!-- <div class="card" id="0">
+                <h1>Word</h1>
+                <hr class="har">
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, urna</p>
+            </div>
+            <div class="card" id="1">
+                <h1>Word</h1>
+                <hr class="har">
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, urna</p>
+            </div>
+            <div class="card" id="2">
+                <h1>Word</h1>
+                <hr class="har">
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, urna</p>
+            </div>
+            <div class="card" id="3">
+                <h1>Word</h1>
+                <hr class="har">
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, urna Lorem ipsum dolor sit amet consectetur
+                    adipiscing elit, urna</p>
+            </div>
+            <div class="card" id="4">
+                <h1>Word</h1>
+                <hr class="har">
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, urna</p>
+            </div> -->
+
+        </div>
+
+
+    </div>
+    <span id="clip">Copied to clipboard!</span>
     <script src="script.js"></script>
 </body>
 

@@ -1,15 +1,297 @@
-:root{font-family: 'IBM Plex Mono', monospace;
-font-weight: 400;}
+:root{
+/* font-family: 'IBM Plex Mono', monospace; */
+font-family: 'Lato', Helvetica, sans-serif;
+font-weight: 400;
+/* --grad: linear-gradient(90deg, #8F41AC 11%,  #4B00F5 100%); */
+/* --grad: linear-gradient(90deg,  #9A3535 -100%, #792C84 0%, #30039b 100%); */
+--grad: none;
+--f: brightness(140%);
+}
+header{
+    height : 6vh;
+    padding:0;
+    margin: 0; 
+    
+}
+
+h1{
+    padding-left: 20px;
+    /* padding-bottom: 10px; */
+    
+    color: white;
+}
+
 h4 {
     margin-bottom: 10px;
     font-weight: 700;
 
 }
 
+
+
+
+
+
 .tab{
+    color: white;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 0;
 }
-textarea{
-    resize: none;
+sup{
+    top:-15px;
+
+}
+sup, sub{
+    color: white;
+    font-weight: 300;
+    font-size: 10pt;
+    text-align: right;
+    position: fixed;
+    right: 20px;
+}
+
+#clip{
+    transition: all 0.6s ease ;
+    font-size: 24pt;
+    border-radius: 10px;
+    /* background-color: #3F00A0; */
+    background-color: green;
+    padding: 10px;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    border: solid white 2px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+
+sub{bottom: 5px;}
+body::-webkit-scrollbar {
+    width: 0.7em;
+    background: transparent;
+  }
+  
+
+body{
+background-image: linear-gradient(90deg, #9A3535 0%, #792C84 50%, #30039b 100%);
+}
+/* testing */
+.container::-webkit-scrollbar {
+    width: 0.7em;
+    background: transparent;
+  }
+  .container::-webkit-scrollbar-thumb {
+    background: white;
+  }
+  .container{
+      height: fit-content;
+    max-height: calc(90vh - 10px);
+    margin-bottom: -10px;
+}
+
+.butt
+{
+    transition: all 0.6s ease ;
+    width:370px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* background-image: linear-gradient(90deg, #E73842 0%, #CE2988 100%); */
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+    text-align: center;
+    text-justify: center;
+    height: 40px;
+    line-height: 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.butt:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.card{
+    transition: all 0.4s ease;
+    /* height: fit-content; */
+}
+
+@media(max-width: 1050px){
+
+.container{
+    display: grid;
+    width: auto;
+    /* height: 600px; */
+    /* border: solid black 1px; */
+    font-family: 'Lato', Helvetica, sans-serif;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: var(--grad);
+    grid-template-columns: 1fr;
+    /* filter: brightness(10%); */
+
+}   
+
+
+.card{
+    word-wrap: break-word;
+    /* background-image: var(--grad); */
+    backdrop-filter: var(--f);
+    margin: 10px;
+    border: solid white 1px;
+    border-radius: 20px;
+}
+
+.card > h1{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* background-image: var(--grad); */
+    /* background-attachment: scroll; */
+    /* position: sticky; */
+    top: 0;
+    /* width: 100%; */
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    font-size: 24pt;
+    margin-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+    filter: var(--f);
+}
+.har{
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 1px; 
+    background-color: white;
+    border-radius: 10px;
+}
+
+.card > p{
+    color: white;
+    font-weight: 200;
+    text-align: left;
+    font-size: 18pt;
+    margin-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+}
+
+@media(min-width: 1050px){
+
+    .container{
+        display: grid;
+        width: auto;
+        /* height: 600px; */
+        /* border: solid black 1px; */
+        font-family: 'Lato', Helvetica, sans-serif;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        background-image: var(--grad);
+        grid-template-columns: 1fr 1fr;
+        /* filter: brightness(10%); */
+    
+    }   
+   
+    .card{
+        word-wrap: break-word;
+        /* background-image: var(--grad); */
+        backdrop-filter: var(--f);
+        margin: 2vh;
+        border: solid white 1px;
+        border-radius: 20px;
+    }
+    
+    .card > h1{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        /* background-image: var(--grad); */
+        /* background-attachment: scroll; */
+        /* position: sticky; */
+        top: 0;
+        /* width: 100%; */
+        color: white;
+        font-weight: 600;
+        text-align: left;
+        font-size: 24pt;
+        margin-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 0;
+        filter: var(--f);
+    }
+    .har{
+        color: white;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 1px; 
+        background-color: white;
+        border-radius: 10px;
+    }
+    
+    .card > p{
+        transition: all 0.5s ease;
+        color: white;
+        font-weight: 200;
+        text-align: left;
+        font-size: 18pt;
+        margin-top: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 20px;
+        max-height: 175px;
+        overflow: hidden;
+    }
+    
+
+
+    }
+
+    .card:hover{
+        backdrop-filter: brightness(160%);
+    }
+    /* #filter{
+        
+        
+    } */
+    #seive{ 
+        transition: all 0.6s ease ;
+        opacity: 0;
+        width: 370px;
+        height: fit-content;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #ff{
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+
+    #instruct{
+        /* position: relative; */
+        width: 50vw;
+        text-align: center;
+    }
+    #instruct > p> b{
+        font-weight: 900;
+        /* color: black; */
+    }
+
+@viewport {
+
+    zoom:1.0;
+    width: extend-to-zoom;;
+}
+@-ms-viewport {
+
+zoom:1.0;
+width: extend-to-zoom;;
 }
