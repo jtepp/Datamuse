@@ -123,7 +123,7 @@ for (m in mmdd) {
     md.appendChild(l);
     md.appendChild(document.createElement('br'));
 }
-
+respond();
 function respond() {
     if (screen.width < 1000) {
         if (screen.width < 600) {
@@ -286,6 +286,10 @@ async function dog(link) {
         // for (oo in o) { ta.innerHTML += Object.keys(o)[cc] + ': ' + o[oo] + "\n"; cc++ }
         // ta.innerHTML += "\n\n";
     }
+    removeItemOnce(availParts, undefined);
+    removeItemOnce(availParts, "");
+    removeItemOnce(availParts, "undefined");
+    removeItemOnce(availParts, null);
     if (!availParts.includes("All")) availParts.push("All");
 
     if (availParts.length < 2 || cont.innerHTML == "") { document.getElementById('seive').setAttribute('style', 'opacity: 0;'); cont.innerHTML = "No Results :(" }
@@ -316,8 +320,8 @@ function fille(input) {
     for (ww in curds) {
         const cd = document.createElement('div');
         cd.setAttribute('class', 'card');
-        cd.setAttribute('id', curds[ww].word + 'card');
-        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + '")');
+        cd.setAttribute('id', capitalize(curds[ww].word) + 'card');
+        cd.setAttribute('onmousedown', 'copy("' + capitalize(curds[ww].word) + 'card' + '")');
         const h = document.createElement('h1');
         h.setAttribute('id', capitalize(curds[ww].word))
         h.innerHTML = capitalize(curds[ww].word);
@@ -370,7 +374,8 @@ function copy(id) {
     document.getElementById('clip').style.opacity = 1;
     dd.style.background = "green";
     const el = document.createElement('textarea');
-    el.value = document.getElementById(id).childNodes[0].innerHTML.split('<')[0];
+    el.value = id.replace('card', '');
+
     document.body.appendChild(el);
     el.select();
     var isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
@@ -477,3 +482,23 @@ var copyyy = function (elementId) {
 
     document.execCommand('copy');
 }
+function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+    return arr;
+}
+
+function removeItemAll(arr, value) {
+    var i = 0;
+    while (i < arr.length) {
+        if (arr[i] === value) {
+            arr.splice(i, 1);
+        } else {
+            ++i;
+        }
+    }
+    return arr;
+}
+  //Usage
