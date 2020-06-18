@@ -344,12 +344,13 @@ function copy(id) {
     const dd = document.getElementById(id);
     document.getElementById('clip').style.opacity = 1;
     dd.style.background = "green";
-    const el = document.createElement('textarea');
-    el.value = document.getElementById(id).innerHTML.split('<')[0];
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    // const el = document.createElement('textarea');
+    // el.value = document.getElementById(id).innerHTML.split('<')[0];
+    // document.body.appendChild(el);
+    // el.select();
+    // document.execCommand('copy');
+    // document.body.removeChild(el);
+    navigator.clipboard.writeText(document.getElementById(id).innerHTML.split('<')[0])
     setTimeout(function () {
 
         document.getElementById('clip').style.opacity = 0;
